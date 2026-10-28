@@ -1,0 +1,48 @@
+# Netlify Configuration for Aurelith Reserve
+
+[build]
+  # Build from the repository root (do not specify an invalid 'base' directory)
+  command = "npm run build"
+  publish = "dist"
+
+[build.environment]
+  NODE_VERSION = "22"
+  NPM_FLAGS = "--legacy-peer-deps"
+
+# Production Security Headers
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "SAMEORIGIN"
+    X-Content-Type-Options = "nosniff"
+    X-XSS-Protection = "1; mode=block"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "camera=(self), microphone=(), geolocation=()"
+
+# Cache-Control: Cache version-hashed immutable assets in /assets/ for 1 year
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+# Cache-Control: Ensure index.html is revalidated immediately so new deployments update without stale 404 chunks
+[[headers]]
+  for = "/index.html"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
+
+# Optional Backend API Proxy:
+# If you deploy the Node.js backend (server.ts) to an external service (e.g. Cloud Run, Render, VPS),
+# uncomment the proxy rule below and set the destination to your backend service URL.
+# [[redirects]]
+#   from = "/api/*"
+#   to = "https://your-api-host.run.app/api/:splat"
+#   status = 200
+#   force = true
+
+# Single-Page Application (SPA) routing fallback
+# Directs all client-side navigation (e.g. /sign-in, /register, /open-account, /banking, etc.) to the entry point
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200

@@ -1,0 +1,141 @@
+{
+  "entities": {
+    "User": {
+      "title": "User",
+      "description": "Authenticated Aurelith Reserve customer profile and settings record.",
+      "type": "object",
+      "properties": {
+        "uid": {
+          "type": "string",
+          "description": "Unique Firebase Authentication User ID.",
+          "maxLength": 128
+        },
+        "id": {
+          "type": "string",
+          "description": "Internal customer banking reference ID.",
+          "maxLength": 64
+        },
+        "clientId": {
+          "type": "string",
+          "description": "Formatted client identifier reference (e.g. AR-XXXXXX).",
+          "maxLength": 30
+        },
+        "firstName": {
+          "type": "string",
+          "description": "Customer legal first name.",
+          "maxLength": 100
+        },
+        "middleName": {
+          "type": "string",
+          "description": "Customer optional middle name.",
+          "maxLength": 100
+        },
+        "lastName": {
+          "type": "string",
+          "description": "Customer legal last name.",
+          "maxLength": 100
+        },
+        "email": {
+          "type": "string",
+          "format": "email",
+          "description": "Customer registered primary email address.",
+          "maxLength": 150
+        },
+        "phoneNumber": {
+          "type": "string",
+          "description": "E.164 formatted international telephone number.",
+          "maxLength": 30
+        },
+        "gender": {
+          "type": "string",
+          "description": "Customer gender.",
+          "enum": ["Male", "Female"]
+        },
+        "dateOfBirth": {
+          "type": "string",
+          "description": "Customer date of birth.",
+          "maxLength": 50
+        },
+        "idType": {
+          "type": "string",
+          "description": "Official identification category (SSN, Driver's License, State ID, etc.).",
+          "maxLength": 100
+        },
+        "idNumber": {
+          "type": "string",
+          "description": "Customer official identification or SSN number.",
+          "maxLength": 100
+        },
+        "governmentId": {
+          "type": "string",
+          "description": "Government official identification record.",
+          "maxLength": 100
+        },
+        "residentialAddress": {
+          "type": "object",
+          "description": "Customer primary residential address."
+        },
+        "accountType": {
+          "type": "string",
+          "description": "Selected Aurelith Reserve account tier.",
+          "maxLength": 60
+        },
+        "accountNumber": {
+          "type": "string",
+          "description": "Authoritative primary bank account number.",
+          "maxLength": 20
+        },
+        "routingNumber": {
+          "type": "string",
+          "description": "ABA direct clearing routing transit number.",
+          "maxLength": 15
+        },
+        "bankName": {
+          "type": "string",
+          "description": "Selected bank association or preferred institution.",
+          "maxLength": 120
+        },
+        "avatarUrl": {
+          "type": "string",
+          "description": "Persistent profile photo data URL or image location.",
+          "maxLength": 350000
+        },
+        "photoDataUrl": {
+          "type": "string",
+          "description": "Compact Base64 data URL profile photo persisted in user document.",
+          "maxLength": 350000
+        },
+        "status": {
+          "type": "string",
+          "description": "Current verification and standing status.",
+          "enum": ["active", "pending_verification"]
+        },
+        "emailVerified": {
+          "type": "boolean",
+          "description": "Whether the user's email address has been verified in Firebase Auth."
+        },
+        "hasPaymentPin": {
+          "type": "boolean",
+          "description": "Whether the user has configured their secure transaction or payment authorization PIN."
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Profile creation timestamp."
+        },
+        "updatedAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Profile last updated timestamp."
+        }
+      },
+      "required": ["uid", "firstName", "lastName", "email"]
+    }
+  },
+  "firestore": {
+    "/users/{userId}": {
+      "schema": "User",
+      "description": "Private profile document belonging to authenticated client {userId}."
+    }
+  }
+}

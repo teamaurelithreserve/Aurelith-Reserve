@@ -1,0 +1,854 @@
+{
+  "users": [
+    {
+      "id": "usr_alex_morgan",
+      "firstName": "Alex",
+      "lastName": "Morgan",
+      "email": "alex.morgan@example.com",
+      "phoneNumber": "+12145550189",
+      "dateOfBirth": "1988-06-14",
+      "idType": "Social Security Number (SSN)",
+      "idNumber": "123-45-6789",
+      "governmentId": "123-45-6789",
+      "residentialAddress": {
+        "street": "4200 Preston Road, Suite 300",
+        "city": "Dallas",
+        "state": "TX",
+        "zipCode": "75205",
+        "country": "United States"
+      },
+      "passwordHash": "7af630e0d836c90bbee4c4bdc7b4bd5b4604d2f693d0bed67b013f53a45e3261f72f9038f94d37e8647a5c10550bdb8a7bc1622f4af527feb65559394de86528",
+      "salt": "4b8f90101f104e4cebe61b22abe69566",
+      "role": "admin",
+      "status": "active",
+      "createdAt": "2026-08-25T00:10:26.303Z",
+      "accounts": [
+        {
+          "id": "acc_chk_01",
+          "accountNumber": "1100482910",
+          "routingNumber": "111301122",
+          "swiftCode": "AURUS33D",
+          "type": "checking",
+          "name": "Aurelith Premier Checking",
+          "currency": "USD",
+          "balance": 14850.75,
+          "availableBalance": 14850.75,
+          "status": "active",
+          "createdAt": "2026-08-25T00:10:26.303Z",
+          "institution": "Aurelith Reserve"
+        },
+        {
+          "id": "acc_sav_01",
+          "accountNumber": "1100892041",
+          "routingNumber": "111301122",
+          "swiftCode": "AURUS33D",
+          "type": "savings",
+          "name": "High-Yield Reserve Savings",
+          "currency": "USD",
+          "balance": 42500,
+          "availableBalance": 42500,
+          "status": "active",
+          "createdAt": "2026-08-25T00:10:26.303Z",
+          "institution": "Aurelith Reserve"
+        }
+      ],
+      "cards": [
+        {
+          "id": "crd_01",
+          "accountId": "acc_chk_01",
+          "cardType": "debit_virtual",
+          "cardHolderName": "ALEX MORGAN",
+          "last4": "8821",
+          "cardMaskedNumber": "•••• •••• •••• 8821",
+          "expiryMonth": "08",
+          "expiryYear": "29",
+          "status": "active",
+          "dailyLimit": 3000,
+          "monthlyLimit": 25000,
+          "contactlessEnabled": true,
+          "onlinePurchasesEnabled": true
+        },
+        {
+          "id": "crd_02",
+          "accountId": "acc_chk_01",
+          "cardType": "debit_physical",
+          "cardHolderName": "ALEX MORGAN",
+          "last4": "4190",
+          "cardMaskedNumber": "•••• •••• •••• 4190",
+          "expiryMonth": "11",
+          "expiryYear": "30",
+          "status": "active",
+          "dailyLimit": 5000,
+          "monthlyLimit": 40000,
+          "contactlessEnabled": true,
+          "onlinePurchasesEnabled": true
+        }
+      ],
+      "beneficiaries": [
+        {
+          "id": "ben_01",
+          "name": "Sarah Jenkins",
+          "bankName": "Aurelith Reserve",
+          "accountNumber": "1100998822",
+          "routingNumber": "111301122",
+          "nickname": "Sister - Rent Split",
+          "createdAt": "2026-09-24T00:10:26.303Z"
+        },
+        {
+          "id": "ben_02",
+          "name": "Lone Star Electric Co.",
+          "bankName": "JPMorgan Chase",
+          "accountNumber": "9843210091",
+          "routingNumber": "111000614",
+          "nickname": "Home Power Utility",
+          "createdAt": "2026-09-14T00:10:26.303Z"
+        }
+      ],
+      "savingsGoals": [
+        {
+          "id": "sg_01",
+          "name": "Hill Country Vacation Home",
+          "targetAmount": 50000,
+          "currentAmount": 28500,
+          "targetDate": "2027-06-30",
+          "category": "Real Estate",
+          "createdAt": "2026-09-09T00:10:26.303Z"
+        },
+        {
+          "id": "sg_02",
+          "name": "Emergency Reserve Fund (6 Months)",
+          "targetAmount": 25000,
+          "currentAmount": 25000,
+          "targetDate": "2026-12-31",
+          "category": "Safety Net",
+          "createdAt": "2026-09-04T00:10:26.303Z"
+        }
+      ],
+      "loans": [
+        {
+          "id": "ln_01",
+          "type": "Personal Loan",
+          "requestedAmount": 15000,
+          "approvedAmount": 15000,
+          "remainingBalance": 9400,
+          "termMonths": 36,
+          "interestRate": 6.49,
+          "monthlyPayment": 459.72,
+          "purpose": "Home Energy & Solar Optimization",
+          "status": "approved",
+          "applicationDate": "2026-06-26T00:10:26.303Z"
+        }
+      ],
+      "notifications": [
+        {
+          "id": "notif_b1099cd8e3bc",
+          "title": "New Device Verified & Trusted",
+          "message": "Device \"Web Browser\" was successfully verified using your payment PIN and added to your trusted devices.",
+          "type": "security",
+          "read": false,
+          "createdAt": "2026-10-24T17:38:45.044Z"
+        },
+        {
+          "id": "notif_16af267df10e",
+          "title": "New Device Verified & Trusted",
+          "message": "Device \"Web Browser\" was successfully verified using your payment PIN and added to your trusted devices.",
+          "type": "security",
+          "read": false,
+          "createdAt": "2026-10-24T17:38:35.265Z"
+        },
+        {
+          "id": "notif_db0a4ef6216a",
+          "title": "Trusted Device Revoked",
+          "message": "A previously trusted device was revoked. Future logins from that device will require payment PIN verification.",
+          "type": "security",
+          "read": false,
+          "createdAt": "2026-10-24T11:52:13.159Z"
+        },
+        {
+          "id": "notif_2f0967245ca1",
+          "title": "Successful Sign-In",
+          "message": "Authenticated from trusted device \"Automated Test Browser on Node\" at 11:52:12 AM.",
+          "type": "security",
+          "read": false,
+          "createdAt": "2026-10-24T11:52:12.958Z"
+        },
+        {
+          "id": "notif_558b03033693",
+          "title": "Sign-In from New Network",
+          "message": "Trusted device \"Automated Test Browser on Node\" signed in from network IP 198.51.100.42.",
+          "type": "security",
+          "read": false,
+          "createdAt": "2026-10-24T11:52:12.957Z"
+        },
+        {
+          "id": "notif_9b6059fe083d",
+          "title": "Successful Sign-In",
+          "message": "Authenticated from trusted device \"Automated Test Browser on Node\" at 11:52:12 AM.",
+          "type": "security",
+          "read": false,
+          "createdAt": "2026-10-24T11:52:12.897Z"
+        },
+        {
+          "id": "notif_36ec29354b9d",
+          "title": "New Device Verified & Trusted",
+          "message": "Device \"Automated Test Browser on Node\" was successfully verified using your payment PIN and added to your trusted devices.",
+          "type": "security",
+          "read": false,
+          "createdAt": "2026-10-24T11:52:12.835Z"
+        },
+        {
+          "id": "notif_cb82b860a882",
+          "title": "Unsuccessful Device Verification",
+          "message": "An incorrect payment PIN was entered during verification for device \"Automated Test Browser on Node\".",
+          "type": "security",
+          "read": false,
+          "createdAt": "2026-10-24T11:52:12.725Z"
+        },
+        {
+          "id": "notif_67b1d6fadde6",
+          "title": "Unsuccessful Device Verification",
+          "message": "An incorrect payment PIN was entered during verification for device \"Automated Test Browser on Node\".",
+          "type": "security",
+          "read": false,
+          "createdAt": "2026-10-24T11:52:12.679Z"
+        },
+        {
+          "id": "notif_4241c056ed71",
+          "title": "Unsuccessful Device Verification",
+          "message": "An incorrect payment PIN was entered during verification for device \"Automated Test Browser on Node\".",
+          "type": "security",
+          "read": false,
+          "createdAt": "2026-10-24T11:52:12.631Z"
+        },
+        {
+          "id": "notif_adcfa6ac76e1",
+          "title": "Unsuccessful Device Verification",
+          "message": "An incorrect payment PIN was entered during verification for device \"Automated Test Browser on Node\".",
+          "type": "security",
+          "read": false,
+          "createdAt": "2026-10-24T11:52:12.581Z"
+        },
+        {
+          "id": "notif_e3c09d87e1a7",
+          "title": "Unsuccessful Device Verification",
+          "message": "An incorrect payment PIN was entered during verification for device \"Automated Test Browser on Node\".",
+          "type": "security",
+          "read": false,
+          "createdAt": "2026-10-24T11:52:12.534Z"
+        },
+        {
+          "id": "notif_acc82091b73a",
+          "title": "Successful Sign-In",
+          "message": "Authenticated from Web Browser at 11:52:05 AM.",
+          "type": "security",
+          "read": false,
+          "createdAt": "2026-10-24T11:52:05.492Z"
+        },
+        {
+          "id": "notif_e8d3c3db4b79",
+          "title": "Successful Sign-In",
+          "message": "Authenticated from Web Browser at 11:52:05 AM.",
+          "type": "security",
+          "read": false,
+          "createdAt": "2026-10-24T11:52:05.407Z"
+        },
+        {
+          "id": "notif_5bbedd9b854c",
+          "title": "Successful Sign-In",
+          "message": "Authenticated from node at 9:46:24 AM.",
+          "type": "security",
+          "read": false,
+          "createdAt": "2026-10-24T09:46:24.901Z"
+        },
+        {
+          "id": "notif_727f6565004e",
+          "title": "Transfer Completed",
+          "message": "Successfully transferred $150.00 to Lone Star Energy & Utilities LLC at JPMorgan Chase Bank, N.A.. Ref: AUR-TRF-20261024-508D06",
+          "type": "transaction",
+          "read": false,
+          "createdAt": "2026-10-24T09:46:19.986Z"
+        },
+        {
+          "id": "notif_66516be27c9c",
+          "title": "Successful Sign-In",
+          "message": "Authenticated from node at 9:46:19 AM.",
+          "type": "security",
+          "read": false,
+          "createdAt": "2026-10-24T09:46:19.968Z"
+        },
+        {
+          "id": "notif_c0958e919009",
+          "title": "Successful Sign-In",
+          "message": "Authenticated from node at 9:46:13 AM.",
+          "type": "security",
+          "read": false,
+          "createdAt": "2026-10-24T09:46:13.368Z"
+        },
+        {
+          "id": "notif_15d48500f39e",
+          "title": "Successful Sign-In",
+          "message": "Authenticated from curl/7.88.1 at 9:46:08 AM.",
+          "type": "security",
+          "read": false,
+          "createdAt": "2026-10-24T09:46:08.164Z"
+        },
+        {
+          "id": "notif_d3bbe8f121ca",
+          "title": "Statement Request Completed",
+          "message": "Your statement request (Water Bill Payments, 2026-10-01 to 2026-10-23) is now marked as Completed.",
+          "type": "general",
+          "read": false,
+          "createdAt": "2026-10-24T04:43:11.003Z"
+        },
+        {
+          "id": "notif_5da7552e4f05",
+          "title": "Statement Request Processing",
+          "message": "Your statement request (Water Bill Payments, 2026-10-01 to 2026-10-23) is now marked as Processing.",
+          "type": "general",
+          "read": false,
+          "createdAt": "2026-10-24T04:43:10.988Z"
+        },
+        {
+          "id": "notif_477cb14ed900",
+          "title": "Statement Request Submitted",
+          "message": "Your request for a Water Bill Payments (2026-10-01 to 2026-10-23) has been submitted to the administrative processing queue. Request ID: stmt_req_bf3899b0dd88.",
+          "type": "general",
+          "read": false,
+          "createdAt": "2026-10-24T04:43:05.883Z"
+        },
+        {
+          "id": "notif_ef980537f5ec",
+          "title": "Successful Sign-In",
+          "message": "Authenticated from curl/7.88.1 at 4:42:44 AM.",
+          "type": "security",
+          "read": false,
+          "createdAt": "2026-10-24T04:42:44.345Z"
+        },
+        {
+          "id": "notif_75a6c7b49bb3",
+          "title": "Successful Sign-In",
+          "message": "Authenticated from curl/7.88.1 at 12:10:53 AM.",
+          "type": "security",
+          "read": false,
+          "createdAt": "2026-10-24T00:10:53.432Z"
+        },
+        {
+          "id": "notif_86cbe7b3d8b3",
+          "title": "Successful Sign-In",
+          "message": "Authenticated from curl/7.88.1 at 12:10:26 AM.",
+          "type": "security",
+          "read": false,
+          "createdAt": "2026-10-24T00:10:26.381Z"
+        },
+        {
+          "id": "notif_01",
+          "title": "Direct Deposit Credited",
+          "message": "Your payroll direct deposit of $4,850.00 from Apex Wealth Partners has cleared.",
+          "type": "transaction",
+          "read": false,
+          "createdAt": "2026-10-23T12:10:26.303Z"
+        },
+        {
+          "id": "notif_02",
+          "title": "Security Notice: New Session",
+          "message": "Sign-in detected from Dallas, TX via Aurelith Reserve Web Portal.",
+          "type": "security",
+          "read": true,
+          "createdAt": "2026-10-23T00:10:26.303Z"
+        },
+        {
+          "id": "notif_03",
+          "title": "Monthly Account Statement Ready",
+          "message": "Your September 2026 Aurelith Reserve account statement is available for download.",
+          "type": "general",
+          "read": true,
+          "createdAt": "2026-10-19T00:10:26.303Z"
+        }
+      ],
+      "trustedDevices": [
+        {
+          "id": "dev_420488125291",
+          "deviceId": "dev_ec31abdb98f3",
+          "deviceTrustToken": "aur_dvt_66769f9252ab5fc9ae8b6a7e7aec8ac42cc9ba06430f71ea4818648b4ea8bd02",
+          "deviceName": "Web Browser",
+          "ipAddress": "127.0.0.1",
+          "trustedAt": "2026-10-24T17:38:45.042Z",
+          "lastUsedAt": "2026-10-24T17:38:45.042Z",
+          "status": "trusted"
+        },
+        {
+          "id": "dev_ddb1c1281285",
+          "deviceId": "dev_2f6dac59ad41",
+          "deviceTrustToken": "aur_dvt_59bce222eddb37daf7f377bb8d8671c0198b3fffff3223ea27df9ad9f05f6777",
+          "deviceName": "Web Browser",
+          "ipAddress": "127.0.0.1",
+          "trustedAt": "2026-10-24T17:38:35.264Z",
+          "lastUsedAt": "2026-10-24T17:38:35.264Z",
+          "status": "trusted"
+        },
+        {
+          "id": "dev_46eee5a6ccd7",
+          "deviceId": "dev_test_device_scenario_2",
+          "deviceTrustToken": "aur_dvt_c586011cc8ef59e63f3ff53d4ea3013cb383717fe5477efb399aba7f1f49743a",
+          "deviceName": "Automated Test Browser on Node",
+          "ipAddress": "198.51.100.42",
+          "trustedAt": "2026-10-24T11:52:12.833Z",
+          "lastUsedAt": "2026-10-24T11:52:12.957Z",
+          "status": "revoked"
+        }
+      ],
+      "paymentPinHash": "ba7f617c69f7877f13b8592572ccdedd3d42d5297c96880b90c77a6f80f9419ea2b97c40c6c3e716358175a34b9d18533fb76ed4d6a8bf2e1761f3d0708a6869",
+      "paymentPinSalt": "d4e737e31d655fc83b3afb5b9d321f32",
+      "clientId": "AR-882190"
+    },
+    {
+      "id": "usr_31045fa0158d",
+      "firstName": "Jordan",
+      "lastName": "Taylor",
+      "email": "test.user.1792842732960@example.com",
+      "phoneNumber": "+12143358214",
+      "dateOfBirth": "1990-01-01",
+      "residentialAddress": {
+        "street": "100 Main Street",
+        "city": "Austin",
+        "state": "TX",
+        "zipCode": "78701",
+        "country": "United States"
+      },
+      "passwordHash": "b960679808a0f2a755e164527603f0a8f7b143911c767980d2412d98af125e252428d2914cc95d5c25d292e2226b8b7f2151fd5d85e11dadb3e53728685b4875",
+      "salt": "319daf6b73c77fd7f25d11ce01e1f624",
+      "status": "active",
+      "createdAt": "2026-10-24T11:52:13.007Z",
+      "accounts": [
+        {
+          "id": "acc_025af5c8d016",
+          "accountNumber": "1100210821",
+          "routingNumber": "111301122",
+          "swiftCode": "AURUS33D",
+          "type": "checking",
+          "name": "Aurelith Premier Checking",
+          "currency": "USD",
+          "balance": 5000,
+          "availableBalance": 5000,
+          "status": "active",
+          "createdAt": "2026-10-24T11:52:13.007Z"
+        },
+        {
+          "id": "acc_1ced0db69ae1",
+          "accountNumber": "1100526838",
+          "routingNumber": "111301122",
+          "swiftCode": "AURUS33D",
+          "type": "savings",
+          "name": "High-Yield Reserve Savings",
+          "currency": "USD",
+          "balance": 12500,
+          "availableBalance": 12500,
+          "status": "active",
+          "createdAt": "2026-10-24T11:52:13.007Z"
+        }
+      ],
+      "cards": [
+        {
+          "id": "crd_f2e050fada31",
+          "accountId": "acc_025af5c8d016",
+          "cardType": "debit_virtual",
+          "cardHolderName": "JORDAN TAYLOR",
+          "last4": "6331",
+          "cardMaskedNumber": "•••• •••• •••• 6331",
+          "expiryMonth": "12",
+          "expiryYear": "29",
+          "status": "active",
+          "dailyLimit": 2500,
+          "monthlyLimit": 20000,
+          "contactlessEnabled": true,
+          "onlinePurchasesEnabled": true
+        }
+      ],
+      "beneficiaries": [],
+      "savingsGoals": [
+        {
+          "id": "sg_c3c01dc1b090",
+          "name": "Emergency Savings Goal",
+          "targetAmount": 10000,
+          "currentAmount": 2500,
+          "targetDate": "2027-12-31",
+          "category": "Safety Reserve",
+          "createdAt": "2026-10-24T11:52:13.007Z"
+        }
+      ],
+      "loans": [],
+      "notifications": [
+        {
+          "id": "notif_ac0b08bf936f",
+          "title": "Payment PIN Configured & Device Trusted",
+          "message": "Your payment PIN was established and device \"Web Browser\" is now trusted.",
+          "type": "security",
+          "read": false,
+          "createdAt": "2026-10-24T11:52:13.154Z"
+        },
+        {
+          "id": "notif_d56a1ee2ddd2",
+          "title": "Welcome to Aurelith Reserve Digital Banking",
+          "message": "Welcome, Jordan! Your Aurelith Premier Checking account (1100210821) is ready for testing in our demonstration banking environment.",
+          "type": "general",
+          "read": false,
+          "createdAt": "2026-10-24T11:52:13.007Z"
+        }
+      ],
+      "paymentPinHash": "ae8464ff9af1bfe1af1e8891814df95094171afe9fb0d3180470f8a4d4ddf820a762403ecbbe778986125d60f0e37b753598b7f6e7151cd016e7c6123f90d290",
+      "paymentPinSalt": "499e40b2c98f2d09d9cc00d8388a538b",
+      "trustedDevices": [
+        {
+          "id": "dev_a12f46ff6a23",
+          "deviceId": "dev_jordan_phone",
+          "deviceTrustToken": "aur_dvt_1c057f283f152b02fe2d63d28c40aa71a25058a1a41e4526f929f5047e734628",
+          "deviceName": "Web Browser",
+          "ipAddress": "127.0.0.1",
+          "trustedAt": "2026-10-24T11:52:13.152Z",
+          "lastUsedAt": "2026-10-24T11:52:13.152Z",
+          "status": "trusted"
+        }
+      ],
+      "clientId": "AR-F04983"
+    }
+  ],
+  "transactions": [
+    {
+      "id": "tx_01",
+      "reference": "AUR-20261022-7F2A",
+      "userId": "usr_alex_morgan",
+      "accountId": "acc_chk_01",
+      "type": "deposit",
+      "category": "Income",
+      "amount": 4850,
+      "direction": "credit",
+      "description": "Payroll ACH Direct Deposit - Apex Wealth Partners",
+      "status": "completed",
+      "fee": 0,
+      "timestamp": "2026-10-23T12:10:26.303Z",
+      "balanceAfter": 14850.75
+    },
+    {
+      "id": "tx_02",
+      "reference": "AUR-20261021-39B1",
+      "userId": "usr_alex_morgan",
+      "accountId": "acc_chk_01",
+      "type": "transfer",
+      "category": "Transfer",
+      "amount": 500,
+      "direction": "debit",
+      "description": "Transfer to High-Yield Reserve Savings",
+      "recipientName": "Alex Morgan",
+      "recipientAccount": "1100892041",
+      "recipientBank": "Aurelith Reserve",
+      "status": "completed",
+      "fee": 0,
+      "timestamp": "2026-10-22T12:10:26.303Z",
+      "balanceAfter": 10000.75
+    },
+    {
+      "id": "tx_03",
+      "reference": "AUR-20261019-9C4D",
+      "userId": "usr_alex_morgan",
+      "accountId": "acc_chk_01",
+      "type": "bill_payment",
+      "category": "Utilities",
+      "amount": 142.8,
+      "direction": "debit",
+      "description": "Lone Star Electric Utility Bill Payment",
+      "recipientName": "Lone Star Electric Co.",
+      "status": "completed",
+      "fee": 0,
+      "timestamp": "2026-10-21T00:10:26.303Z",
+      "balanceAfter": 10500.75
+    },
+    {
+      "id": "tx_04",
+      "reference": "AUR-20261017-E182",
+      "userId": "usr_alex_morgan",
+      "accountId": "acc_chk_01",
+      "type": "card_purchase",
+      "category": "Dining & Food",
+      "amount": 78.45,
+      "direction": "debit",
+      "description": "Debit Card Purchase • Central Market Dallas",
+      "status": "completed",
+      "fee": 0,
+      "timestamp": "2026-10-19T00:10:26.303Z",
+      "balanceAfter": 10643.55
+    },
+    {
+      "id": "tx_05",
+      "reference": "AUR-20261015-884A",
+      "userId": "usr_alex_morgan",
+      "accountId": "acc_chk_01",
+      "type": "transfer",
+      "category": "Personal Transfer",
+      "amount": 250,
+      "direction": "debit",
+      "description": "Transfer to Sarah Jenkins (Sister - Rent Split)",
+      "recipientName": "Sarah Jenkins",
+      "recipientAccount": "1100998822",
+      "recipientBank": "Aurelith Reserve",
+      "status": "completed",
+      "fee": 0,
+      "timestamp": "2026-10-17T08:10:26.303Z",
+      "balanceAfter": 10722
+    },
+    {
+      "id": "tx_06_water",
+      "reference": "AUR-20261012-4C19",
+      "userId": "usr_alex_morgan",
+      "accountId": "acc_chk_01",
+      "type": "bill_payment",
+      "category": "Water",
+      "amount": 68.45,
+      "direction": "debit",
+      "description": "Dallas Water Utilities • Monthly Municipal Service",
+      "recipientName": "Dallas Water Utilities",
+      "status": "completed",
+      "fee": 0,
+      "timestamp": "2026-10-12T14:30:00.000Z",
+      "balanceAfter": 10972
+    },
+    {
+      "id": "tx_07_airtime",
+      "reference": "AUR-20261010-8A71",
+      "userId": "usr_alex_morgan",
+      "accountId": "acc_chk_01",
+      "type": "airtime",
+      "category": "Airtime",
+      "amount": 35,
+      "direction": "debit",
+      "description": "Airtime Top-up • AT&T Mobility (+1 214-555-0189)",
+      "recipientName": "AT&T Mobility",
+      "status": "completed",
+      "fee": 0,
+      "timestamp": "2026-10-10T09:15:00.000Z",
+      "balanceAfter": 11040.45
+    },
+    {
+      "id": "tx_08_inflow",
+      "reference": "AUR-20261005-9B21",
+      "userId": "usr_alex_morgan",
+      "accountId": "acc_chk_01",
+      "type": "transfer",
+      "category": "Wire Inflow",
+      "amount": 2500,
+      "direction": "credit",
+      "description": "Wire Transfer Inward • Henderson Capital Advisory Distribution",
+      "recipientName": "Alex Morgan",
+      "recipientBank": "JPMorgan Chase",
+      "status": "completed",
+      "fee": 0,
+      "timestamp": "2026-10-05T11:45:00.000Z",
+      "balanceAfter": 11075.45
+    },
+    {
+      "id": "tx_3cb034b1c670",
+      "reference": "AUR-TRF-20261024-508D06",
+      "userId": "usr_alex_morgan",
+      "accountId": "acc_chk_01",
+      "type": "transfer",
+      "category": "Interbank Wire / ACH Transfer",
+      "amount": 150,
+      "direction": "debit",
+      "description": "Transfer to Lone Star Energy & Utilities LLC • Test Verification Protection",
+      "recipientName": "Lone Star Energy & Utilities LLC",
+      "recipientAccount": "9843210091",
+      "recipientBank": "JPMorgan Chase Bank, N.A.",
+      "status": "completed",
+      "fee": 0,
+      "timestamp": "2026-10-24T09:46:19.986Z",
+      "balanceAfter": 14700.75
+    },
+    {
+      "id": "tx_dfeb23fb7912",
+      "reference": "AUR-20261024-391A0F",
+      "userId": "usr_31045fa0158d",
+      "accountId": "acc_025af5c8d016",
+      "type": "deposit",
+      "category": "Welcome Deposit",
+      "amount": 5000,
+      "direction": "credit",
+      "description": "Account Opening Welcome Credit • Demonstration Environment",
+      "status": "completed",
+      "fee": 0,
+      "timestamp": "2026-10-24T11:52:13.007Z",
+      "balanceAfter": 5000
+    }
+  ],
+  "sessions": {
+    "aur_sess_3a563fd04077ad5cdaae2ad48a5cb7f77d55e9fafc362c4aaabab557ea4f22a1": {
+      "userId": "usr_alex_morgan",
+      "expiresAt": 1793405426381
+    },
+    "aur_sess_d3614339a4cec3d7a7fc8b0021d151c6f4b6ec4b2f7c831fd0f4bad38eeea1bc": {
+      "userId": "usr_alex_morgan",
+      "expiresAt": 1793405453404
+    },
+    "aur_sess_a573fc44f531fa5846246512786859781fbd62d52fac2a0ef4c0a1a1ad22122e": {
+      "userId": "usr_alex_morgan",
+      "expiresAt": 1793421764344
+    },
+    "aur_sess_32b887d7774ad0b5c3c546865216e540249b276b072fa38190059a5661c15d86": {
+      "userId": "usr_alex_morgan",
+      "expiresAt": 1793439968143
+    },
+    "aur_sess_39477b7de8d4e1d225f75d8f241df4f56db1f557bac7c61ab014a44d96938d15": {
+      "userId": "usr_alex_morgan",
+      "expiresAt": 1793439973367
+    },
+    "aur_sess_97d155cf47047cfe0f05c5675b4a543c7641765401d8eed9df90f75ab08a2896": {
+      "userId": "usr_alex_morgan",
+      "expiresAt": 1793439979967
+    },
+    "aur_sess_18c540d41155ea6709d72c8f0b364616042c224017a403b45d0e81e9aea42f8a": {
+      "userId": "usr_alex_morgan",
+      "expiresAt": 1793439984901
+    },
+    "aur_sess_82492d590b5404518eb2012212827ccea7c6a93575a707472d1e46271cb65af6": {
+      "userId": "usr_alex_morgan",
+      "expiresAt": 1793447525387
+    },
+    "aur_sess_bd02c147185935be6cf497293d368a7a178eeb7e04ce7984fd6b5231dd5aa337": {
+      "userId": "usr_alex_morgan",
+      "expiresAt": 1793447525491
+    },
+    "aur_sess_e895d0309bba88406a7aa0f0082a186a17bc16522de96afb676bc0fe8d2d2155": {
+      "userId": "usr_alex_morgan",
+      "expiresAt": 1793447532834,
+      "status": "active"
+    },
+    "aur_sess_14f29b36be70e6f50e99c7c4af17593e2e57779b51b9e6c269eb33ff6dc07a60": {
+      "userId": "usr_alex_morgan",
+      "expiresAt": 1793447532880,
+      "status": "active"
+    },
+    "aur_sess_f4671f5c22b662bd2e0045f3d147fa068f4af33721a72f53dd6838c0532a0293": {
+      "userId": "usr_alex_morgan",
+      "expiresAt": 1793447532957,
+      "status": "active"
+    },
+    "aur_sess_e49c00bee8f50d5886f3540f3bd441485fcd0c40e3b79f0efc12bb49add7c39b": {
+      "userId": "usr_31045fa0158d",
+      "expiresAt": 1793447533007,
+      "status": "active"
+    },
+    "aur_sess_0f7ded8441db5b81bc957a0159a6c763105556fafdc9def046a3891628d6c256": {
+      "userId": "usr_31045fa0158d",
+      "expiresAt": 1793447533153,
+      "status": "active"
+    },
+    "aur_sess_43e744591de3b75b52ab780641e0588c7b938c7b68e46a84e2f0335bcf5bb45d": {
+      "userId": "usr_alex_morgan",
+      "expiresAt": 1793468315265,
+      "status": "active"
+    },
+    "aur_sess_99e8c04a90ae71327ddcbee9220ddc32dfaf7cb0c35f6d70153b1df8eed79177": {
+      "userId": "usr_alex_morgan",
+      "expiresAt": 1793468325043,
+      "status": "active"
+    },
+    "aur_sess_7320509c529495471616ee43bac25fea2cbaf6794f2d9c119952f28337196745": {
+      "userId": "usr_071f8109b509",
+      "expiresAt": 1793468325132,
+      "status": "active"
+    }
+  },
+  "supportTickets": [],
+  "statementRequests": [
+    {
+      "id": "stmt_req_bf3899b0dd88",
+      "userId": "usr_alex_morgan",
+      "customerName": "Alex Morgan",
+      "customerEmail": "alex.morgan@example.com",
+      "accountIdentifier": "1100482910",
+      "accountType": "Aurelith Premier Checking",
+      "startDate": "2026-10-01",
+      "endDate": "2026-10-23",
+      "category": "Water Bill Payments",
+      "deliveryMethod": "email",
+      "status": "Completed",
+      "createdAt": "2026-10-24T04:43:05.883Z",
+      "serverTimestamp": "2026-10-24T04:43:05.883Z",
+      "serverTimezone": "CDT (UTC-05:00)",
+      "statementSummary": {
+        "totalDebits": 68.45,
+        "totalCredits": 0,
+        "openingBalance": 14850.75,
+        "closingBalance": 14850.75,
+        "transactionCount": 1
+      }
+    },
+    {
+      "id": "req_stmt_01",
+      "userId": "usr_alex_morgan",
+      "customerName": "Alex Morgan",
+      "customerEmail": "alex.morgan@example.com",
+      "accountIdentifier": "1100482910",
+      "accountType": "Aurelith Premier Checking",
+      "startDate": "2026-09-01",
+      "endDate": "2026-09-30",
+      "category": "Entire Account Statement",
+      "deliveryMethod": "email",
+      "status": "Completed",
+      "createdAt": "2026-10-09T14:20:00.000Z",
+      "serverTimestamp": "2026-10-09T14:20:00.000Z",
+      "serverTimezone": "CDT (UTC-05:00)",
+      "statementSummary": {
+        "totalDebits": 971.25,
+        "totalCredits": 4850,
+        "openingBalance": 10972,
+        "closingBalance": 14850.75,
+        "transactionCount": 8
+      }
+    },
+    {
+      "id": "req_stmt_02",
+      "userId": "usr_alex_morgan",
+      "customerName": "Alex Morgan",
+      "customerEmail": "alex.morgan@example.com",
+      "accountIdentifier": "1100482910",
+      "accountType": "Aurelith Premier Checking",
+      "startDate": "2026-10-01",
+      "endDate": "2026-10-23",
+      "category": "Utility Bill Payments",
+      "deliveryMethod": "email",
+      "status": "Processing",
+      "createdAt": "2026-10-23T18:30:00.000Z",
+      "serverTimestamp": "2026-10-23T18:30:00.000Z",
+      "serverTimezone": "CDT (UTC-05:00)",
+      "statementSummary": {
+        "totalDebits": 211.25,
+        "totalCredits": 0,
+        "openingBalance": 11075.45,
+        "closingBalance": 14850.75,
+        "transactionCount": 2
+      }
+    }
+  ],
+  "pendingVerifications": {
+    "aur_pnd_7a5418471f89fc33447edc1c5c5fdaec5d794e0364d488b9": {
+      "token": "aur_pnd_7a5418471f89fc33447edc1c5c5fdaec5d794e0364d488b9",
+      "userId": "usr_alex_morgan",
+      "deviceId": "dev_test_device_scenario_2",
+      "deviceName": "Automated Test Browser on Node",
+      "ipAddress": "127.0.0.1",
+      "attempts": 5,
+      "createdAt": 1792842732477,
+      "expiresAt": 1792843632477,
+      "lockoutUntil": 1792843032724
+    },
+    "aur_pnd_1ef6ce0f56e9e5c248827c790cc6ca9a2a40f2e65838b0b2": {
+      "token": "aur_pnd_1ef6ce0f56e9e5c248827c790cc6ca9a2a40f2e65838b0b2",
+      "userId": "usr_alex_morgan",
+      "deviceId": "dev_test_device_scenario_2",
+      "deviceName": "Web Browser",
+      "ipAddress": "127.0.0.1",
+      "attempts": 0,
+      "createdAt": 1792842733206,
+      "expiresAt": 1792843633206
+    }
+  }
+}

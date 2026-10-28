@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Aurelith Reserve | Wealth Management & Banking Services</title>
+    <meta name="description" content="Aurelith Reserve Wealth Management and Banking Services. Comprehensive personal banking, commercial solutions, and wealth management tailored to your legacy." />
+    <meta property="og:title" content="Aurelith Reserve | Wealth Management & Banking Services" />
+    <meta property="og:description" content="Aurelith Reserve Wealth Management and Banking Services. Comprehensive personal banking, commercial solutions, and wealth management tailored to your legacy." />
+    <meta property="og:site_name" content="Aurelith Reserve" />
+    <!-- Official Theme-Aware Favicons -->
+    <link id="favicon-ico" rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <link id="favicon-theme" rel="icon" type="image/png" data-theme-favicon="true" href="/favicon-light.png" />
+    <link id="favicon-32" rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link id="favicon-16" rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link id="apple-touch-icon" rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+
+    <script>
+      (function() {
+        try {
+          var stored = localStorage.getItem('aurelith_theme_preference');
+          var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+          var isDark = stored === 'dark' || (!stored && prefersDark);
+          if (isDark) {
+            document.documentElement.classList.add('dark');
+            document.documentElement.style.colorScheme = 'dark';
+            var fTheme = document.getElementById('favicon-theme');
+            if (fTheme) fTheme.href = '/favicon-dark.png';
+            var f32 = document.getElementById('favicon-32');
+            if (f32) f32.href = '/favicon-dark-32x32.png';
+            var f16 = document.getElementById('favicon-16');
+            if (f16) f16.href = '/favicon-dark-16x16.png';
+            var aTouch = document.getElementById('apple-touch-icon');
+            if (aTouch) aTouch.href = '/apple-touch-icon-dark.png';
+          } else {
+            document.documentElement.classList.remove('dark');
+            document.documentElement.style.colorScheme = 'light';
+          }
+        } catch (e) {}
+      })();
+    </script>
+  </head>
+  <body class="font-sans antialiased text-slate-900 bg-white dark:bg-[#0B111E] dark:text-slate-100 transition-colors duration-150">
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
+

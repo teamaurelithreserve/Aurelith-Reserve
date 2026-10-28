@@ -1,0 +1,152 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // =========================================================================
+    // 1. GLOBAL DEFAULT-DENY SAFETY NET
+    // =========================================================================
+    match /{document=**} {
+      allow read, write: if false;
+    }
+
+    // =========================================================================
+    // 2. REUSABLE HARDENED SECURITY PRIMITIVES & VALIDATION HELPERS
+    // =========================================================================
+    function isSignedIn() {
+      return request.auth != null;
+    }
+
+    function isOwner(userId) {
+      return isSignedIn() && request.auth.uid == userId;
+    }
+
+    function incoming() {
+      return request.resource.data;
+    }
+
+    function existing() {
+      return resource.data;
+    }
+
+    // Strict schema blueprint validation for customer records
+    function isValidUser(data) {
+      return data.uid is string && data.uid.size() <= 128
+        && data.firstName is string && data.firstName.size() > 0 && data.firstName.size() <= 100
+        && data.lastName is string && data.lastName.size() > 0 && data.lastName.size() <= 100
+        && data.email is string && data.email.size() <= 150
+        && (!('id' in data) || (data.id is string && data.id.size() <= 64))
+        && (!('clientId' in data) || (data.clientId is string && data.clientId.size() <= 30))
+        && (!('createdAt' in data) || (data.createdAt is string && data.createdAt.size() <= 50))
+        && (!('updatedAt' in data) || (data.updatedAt is string && data.updatedAt.size() <= 50))
+        && (!('phoneNumber' in data) || (data.phoneNumber is string && data.phoneNumber.size() <= 30))
+        && (!('gender' in data) || data.gender == null || (data.gender in ['Male', 'Female']))
+        && (!('governmentId' in data) || (data.governmentId is string && data.governmentId.size() <= 100))
+        && (!('idType' in data) || (data.idType is string && data.idType.size() <= 100))
+        && (!('idNumber' in data) || (data.idNumber is string && data.idNumber.size() <= 100))
+        && (!('dateOfBirth' in data) || (data.dateOfBirth is string && data.dateOfBirth.size() <= 50))
+        && (!('residentialAddress' in data) || data.residentialAddress is map)
+        && (!('accountType' in data) || (data.accountType is string && data.accountType.size() <= 60))
+        && (!('accountNumber' in data) || (data.accountNumber is string && data.accountNumber.size() <= 20))
+        && (!('routingNumber' in data) || (data.routingNumber is string && data.routingNumber.size() <= 15))
+        && (!('bankName' in data) || data.bankName == null || (data.bankName is string && data.bankName.size() <= 120))
+        && (!('middleName' in data) || data.middleName == null || (data.middleName is string && data.middleName.size() <= 100))
+        && (!('hasPaymentPin' in data) || data.hasPaymentPin is bool)
+        && (!('avatarUrl' in data) || data.avatarUrl == null || (data.avatarUrl is string && data.avatarUrl.size() <= 350000))
+        && (!('photoDataUrl' in data) || data.photoDataUrl == null || (data.photoDataUrl is string && data.photoDataUrl.size() <= 350000))
+        && (!('status' in data) || (data.status in ['active', 'pending_verification']))
+        && (!('emailVerified' in data) || data.emailVerified is bool)
+        // Prevent client-side role escalation
+        && (!('role' in data) || data.role == 'customer')
+        // Prevent arbitrary client-side financial balance injection
+        && (!('checkingBalance' in data) || data.checkingBalance == 0)
+        && (!('savingsBalance' in data) || data.savingsBalance == 0)
+        && (!('accounts' in data) || (data.accounts is list && data.accounts.size() <= 10))
+        && (!('cards' in data) || (data.cards is list && data.cards.size() <= 10));
+    }
+
+    // Immutability enforcement on profile updates to prevent identity or financial tampering
+    function isUnchanged(field) {
+      return !(field in existing()) || !(field in incoming()) || incoming()[field] == existing()[field];
+    }
+
+    function isSafeUserUpdate() {
+      return incoming().uid == existing().uid
+        && isUnchanged('id')
+        && isUnchanged('clientId')
+        && isUnchanged('accountNumber')
+        && isUnchanged('routingNumber')
+        && isUnchanged('accountType')
+        && isUnchanged('role')
+        && isUnchanged('status')
+        && isUnchanged('checkingBalance')
+        && isUnchanged('savingsBalance')
+        && isUnchanged('createdAt');
+    }
+
+    // =========================================================================
+    // 3. APPLICATION HEALTH CHECK & CONNECTION VERIFICATION
+    // =========================================================================
+    match /test/{docId} {
+      allow read: if true;
+    }
+
+    // =========================================================================
+    // 4. USER PROFILE COLLECTION (STRICT ABAC & PII ISOLATION)
+    // =========================================================================
+    match /users/{userId} {
+      // Direct document GET is permitted ONLY to the authenticated account owner
+      allow get: if isOwner(userId);
+
+      // LIST is unconditionally DENIED to prevent bulk enumeration and customer PII leakage
+      allow list: if false;
+      
+      // CREATE: Authenticated user can initialize their own profile matching schema
+      allow create: if isOwner(userId) 
+                    && incoming().uid == request.auth.uid 
+                    && isValidUser(incoming());
+
+      // UPDATE: Account owner can update permitted profile and security preference fields
+      // while critical identity, account numbers, routing numbers, and balances remain strictly immutable
+      allow update: if isOwner(userId)
+                    && isValidUser(incoming())
+                    && isSafeUserUpdate()
+                    && incoming().diff(existing()).affectedKeys().hasOnly([
+                         'avatarUrl',
+                         'photoDataUrl',
+                         'bankName',
+                         'middleName',
+                         'firstName',
+                         'lastName',
+                         'email',
+                         'phoneNumber',
+                         'gender',
+                         'idType',
+                         'idNumber',
+                         'governmentId',
+                         'residentialAddress',
+                         'dateOfBirth',
+                         'hasPaymentPin',
+                         'updatedAt',
+                         'emailVerified',
+                         'notificationPreferences',
+                         'securitySettings',
+                         // Allow preserving existing immutable keys in setDoc merge operations
+                         'uid',
+                         'id',
+                         'clientId',
+                         'accountType',
+                         'accountNumber',
+                         'routingNumber',
+                         'status',
+                         'createdAt',
+                         'role',
+                         'checkingBalance',
+                         'savingsBalance',
+                         'accounts',
+                         'cards'
+                       ]);
+
+      // DELETE: Client-side deletion is prohibited to protect banking audit records
+      allow delete: if false;
+    }
+  }
+}
